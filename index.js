@@ -5,7 +5,7 @@
  * @return {number}
  */
 var minMutation = function(start, end, bank) {
-	return 0;
+	return 1;
 };
 
 module.exports = {

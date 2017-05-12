@@ -42,7 +42,10 @@ var minMutation = function(start, end, bank) {
 		if (diffElement(start, end).length === 1) {
 			return 1;
 		}
+
+		return -1;
 	}
+
 	return searchMutation(start, end, bank);
 };
 

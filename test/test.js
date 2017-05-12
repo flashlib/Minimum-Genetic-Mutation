@@ -3,11 +3,13 @@ var assert = require('assert');
 
 describe('Minimum Genetic Mutation', function() {
 	describe('-1 mutation', function() {
-		it('not in bank', function() {
+		it('no bank', function() {
 			assert(_.minMutation('AACCGGTT', 'AACCGGTA') == -1);
 		});
 
-		it('not a valid gene')
+		it('not in bank', function() {
+			assert(_.minMutation('AACCGGTT', 'AACCGGTA', ['AACCGGTC']) == -1);
+		});
 	});
 
 	describe('1 mutation', function() {

@@ -9,6 +9,10 @@ var minMutation = function(start, end, bank) {
 		return -1;
 	}
 
+    if (bank.indexOf(end) === -1) {
+		return -1;
+	}
+
 	return 1;
 };
 

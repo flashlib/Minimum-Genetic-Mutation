@@ -6,9 +6,9 @@
  */
 var minMutation = function(start, end, bank) {
 	if (bank == undefined) {
-		return 0;
+		return -1;
 	}
-	
+
 	return 1;
 };
 

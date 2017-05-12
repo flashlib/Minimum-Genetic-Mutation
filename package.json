@@ -15,5 +15,10 @@
     "mutation"
   ],
   "author": "flashlib@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "intelli-espower-loader": "^1.0.1",
+    "mocha": "^3.3.0",
+    "power-assert": "^1.4.2"
+  }
 }

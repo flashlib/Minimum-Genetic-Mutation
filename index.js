@@ -17,20 +17,20 @@ var minMutation = function(start, end, bank) {
 		var arr1 = a.split('');
 		var arr2 = b.split('');
 
-		var totalDiffElement = arr1.map(function (item, index, arr) {
+		var diffElements = arr1.map(function (item, index, arr) {
 			if (arr2[index] === item) {
-				return 0;
+				return -1;
 			}
-			return 1;
-		}).reduce(function (acc, val) {
-			return acc + val;
-		}, 0);
+			return index;
+		}).filter(function (item, index) {
+			return item !== -1;
+		});
 
-		console.log('diffElement ' + totalDiffElement);
-		return totalDiffElement;
+		console.log('diffElement ' + diffElements);
+		return diffElements;
 	}
 
-	if (diffElement(start, end) === 1) {
+	if (diffElement(start, end).length === 1) {
 		return 1;
 	}
 

@@ -18,4 +18,10 @@ describe('Minimum Genetic Mutation', function() {
 			assert(_.minMutation('AACCGGTT', 'AACCGATT', ['AACCGATT']) == 1);
 		});
 	});
+
+	describe('2 mutation', function() {
+		it('2 mutation', function() {
+			assert(_.minMutation('AACCGGTT', 'AACCGGAA', ['AACCGGTA', 'AACCGGAA']) == 2);
+		});
+	});
 });

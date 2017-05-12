@@ -1,0 +1,19 @@
+{
+  "name": "gen",
+  "version": "1.0.0",
+  "description": "Minimum Genetic Mutation",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require intelli-espower-loader "
+  },
+  "keywords": [
+    "leetcode",
+    "433",
+    "gene",
+    "minimum",
+    "genetic",
+    "mutation"
+  ],
+  "author": "flashlib@gmail.com",
+  "license": "ISC"
+}

@@ -7,3 +7,7 @@
 var minMutation = function(start, end, bank) {
 	return 0;
 };
+
+module.exports = {
+	minMutation: minMutation
+};

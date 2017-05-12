@@ -36,17 +36,22 @@ var minMutation = function(start, end, bank) {
 	// });
 	function searchMutation(start, end, bank) {
 		if (bank.indexOf(end) === -1) {
-			return -1;
+			return [];
 		}
 
 		if (diffElement(start, end).length === 1) {
-			return 1;
+			return [end];
 		}
 
-		return -1;
+		bank.forEach( function(element, index) {
+			if (diffElements(start, element).length === 1) {
+
+			}
+		});
+		return [];
 	}
 
-	return searchMutation(start, end, bank);
+	return searchMutation(start, end, bank).length ? searchMutation(start, end, bank).length : -1;
 };
 
 module.exports = {

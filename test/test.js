@@ -1,9 +1,16 @@
 var _ = require('../index.js');
 var assert = require('assert');
 
-describe('test', function () {
-	it('case 1', function () {
-		assert(_.minMutation('AACCGGTT', 'AACCGGTA', ['AACCGGTA'])==1);
+describe('Minimum Genetic Mutation', function() {
+	describe.skip('0 mutation', function() {
+		it('not in bank', function() {
+			assert(_.minMutation('AACCGGTT', 'AACCGGTA') == 0);
+		});
+	});
+
+	describe('1 mutation', function() {
+		it('1 mutation', function() {
+			assert(_.minMutation('AACCGGTT', 'AACCGGTA', ['AACCGGTA']) == 1);
+		});
 	});
 });
-

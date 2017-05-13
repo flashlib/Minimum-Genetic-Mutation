@@ -22,18 +22,9 @@ var minMutation = function(start, end, bank) {
 			return item !== -1;
 		});
 
-		console.log('diffElement ' + diffElements);
 		return diffElements;
 	}
 
-	// var mutations = [];
-	// bank.forEach( function(element, index) {
-	// 	if (diffElements(start, element).length === 1) {
-	// 		mutations.push(minMutation(element, end, bank.filter(function (element, i) {
-	// 			return i !== index;
-	// 		})) + 1);
-	// 	}
-	// });
 	function searchMutation(start, end, bank) {
 		if (bank.indexOf(end) === -1) {
 			return [];

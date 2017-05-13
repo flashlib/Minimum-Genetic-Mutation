@@ -22,6 +22,7 @@ describe('Minimum Genetic Mutation', function() {
 	describe('2 mutation', function() {
 		it('2 mutation', function() {
 			assert(_.minMutation('AACCGGTT', 'AACCGGAA', ['AACCGGTA', 'AACCGGAA']) == 2);
+			assert(_.minMutation('AACCGGTT', 'AACCGATA', ['AACCGGTA', 'AACCGATA']) == 2);
 		});
 	});
 });

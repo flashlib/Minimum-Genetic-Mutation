@@ -24,5 +24,9 @@ describe('Minimum Genetic Mutation', function() {
 			assert(_.minMutation('AACCGGTT', 'AACCGGAA', ['AACCGGTA', 'AACCGGAA']) == 2);
 			assert(_.minMutation('AACCGGTT', 'AACCGATA', ['AACCGGTA', 'AACCGATA']) == 2);
 		});
+
+		it('should find 2 mutation when there is a string same as start in bank', function () {
+			assert(_.minMutation('AACCGGTT', 'AACCGATA', ['AACCGGTT', 'AACCGGTA', 'AACCGATA']) === 2);
+		})
 	});
 });

@@ -9,7 +9,7 @@ var minMutation = function(start, end, bank) {
 		return -1;
 	}
 
-	function diffElement(a, b) {
+	function diffElements(a, b) {
 		var arr1 = a.split('');
 		var arr2 = b.split('');
 
@@ -39,16 +39,30 @@ var minMutation = function(start, end, bank) {
 			return [];
 		}
 
-		if (diffElement(start, end).length === 1) {
+		if (diffElements(start, end).length === 1) {
 			return [end];
 		}
 
+		var mutations = [];
 		bank.forEach( function(element, index) {
 			if (diffElements(start, element).length === 1) {
-
+				mutations.push([start].concat(searchMutation(element, end, bank.filter(function (item, i) {
+					return i !== index;
+				}))));
 			}
 		});
-		return [];
+
+		var validMutations = mutations.filter(function (item, index) {
+			return item[item.length - 1] === end;
+		});
+
+		if (validMutations.length === 0) {
+			return [];
+		}
+
+		return validMutations.sort(function (first, last) {
+			return first.length < last.length;
+		})[0];
 	}
 
 	return searchMutation(start, end, bank).length ? searchMutation(start, end, bank).length : -1;

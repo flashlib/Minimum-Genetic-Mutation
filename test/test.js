@@ -7,8 +7,12 @@ describe('Minimum Genetic Mutation', function() {
 			assert(_.minMutation('AACCGGTT', 'AACCGGTA') == -1);
 		});
 
-		it('not in bank', function() {
+		it('not in bank 1 step', function() {
 			assert(_.minMutation('AACCGGTT', 'AACCGGTA', ['AACCGGTC']) == -1);
+		});
+
+		it('not in bank 2 step', function() {
+			assert(_.minMutation('AACCGGTT', 'AACCGGAA', ['AACCGGTC', 'AACCGGAA']) == -1);
 		});
 	});
 

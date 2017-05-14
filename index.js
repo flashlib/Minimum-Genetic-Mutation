@@ -31,7 +31,7 @@ var minMutation = function(start, end, bank) {
 		}
 
 		if (diffElements(start, end).length === 1) {
-			return [end];
+			return [start, end];
 		}
 
 		var mutations = [];
@@ -43,9 +43,13 @@ var minMutation = function(start, end, bank) {
 			}
 		});
 
+		console.log('start: ' + start + ' mutations: ' + mutations);
+
 		var validMutations = mutations.filter(function (item, index) {
 			return item[item.length - 1] === end;
 		});
+
+		//console.log('validMutations: ' + validMutations);
 
 		if (validMutations.length === 0) {
 			return [];
@@ -56,7 +60,9 @@ var minMutation = function(start, end, bank) {
 		})[0];
 	}
 
-	return searchMutation(start, end, bank).length ? searchMutation(start, end, bank).length : -1;
+	return searchMutation(start, end, bank).length ? searchMutation(start, end, bank).length - 1 : -1;
+	//var validMutations = searchMutation(start, end, bank);
+	//return validMutations.length ? validMutations[0].length : -1;
 };
 
 module.exports = {

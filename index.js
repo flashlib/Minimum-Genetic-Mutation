@@ -65,7 +65,7 @@ var minMutation = function(start, end, bank) {
 	//return searchMutation(start, end, bank).length ? searchMutation(start, end, bank).length - 1 : -1;
 	var validMutations = searchMutation(start, end, bank);
 	console.log('validMutations:' + validMutations);
-	return validMutations.length ? validMutations.length - 1 : -1;
+	return validMutations.length - 1;
 };
 
 module.exports = {

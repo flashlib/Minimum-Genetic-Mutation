@@ -5,7 +5,7 @@
  * @return {number}
  */
 var minMutation = function(start, end, bank) {
-	if (bank == undefined) {
+	if (bank === undefined) {
 		return -1;
 	}
 

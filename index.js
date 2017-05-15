@@ -30,39 +30,42 @@ var minMutation = function(start, end, bank) {
 			return [];
 		}
 
+		if (start === end) {
+			return [end];
+		}
+
 		if (diffElements(start, end).length === 1) {
 			return [start, end];
 		}
 
 		var mutations = [];
-		bank.forEach( function(element, index) {
+		bank.forEach(function(element, index) {
 			if (diffElements(start, element).length === 1) {
-				mutations.push([start].concat(searchMutation(element, end, bank.filter(function (item, i) {
+				mutations.push([start].concat(searchMutation(element, end, bank.filter(function(item, i) {
 					return i !== index;
 				}))));
 			}
 		});
 
-		console.log('start: ' + start + ' mutations: ' + mutations);
+		console.log('(' + start + ', ' + end + '), bank: ' + bank + ', mutations: ' + mutations);
 
-		var validMutations = mutations.filter(function (item, index) {
+		var validMutations = mutations.filter(function(item, index) {
 			return item[item.length - 1] === end;
 		});
-
-		//console.log('validMutations: ' + validMutations);
 
 		if (validMutations.length === 0) {
 			return [];
 		}
 
-		return validMutations.sort(function (first, last) {
-			return first.length < last.length;
+		return validMutations.sort(function(first, last) {
+			return first.length - last.length;
 		})[0];
 	}
 
-	return searchMutation(start, end, bank).length ? searchMutation(start, end, bank).length - 1 : -1;
-	//var validMutations = searchMutation(start, end, bank);
-	//return validMutations.length ? validMutations[0].length : -1;
+	//return searchMutation(start, end, bank).length ? searchMutation(start, end, bank).length - 1 : -1;
+	var validMutations = searchMutation(start, end, bank);
+	console.log('validMutations:' + validMutations);
+	return validMutations.length ? validMutations.length - 1 : -1;
 };
 
 module.exports = {

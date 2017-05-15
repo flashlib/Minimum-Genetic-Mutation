@@ -41,13 +41,14 @@ var minMutation = function(start, end, bank) {
 		var mutations = [];
 		bank.forEach(function(element, index) {
 			if (diffElements(start, element).length === 1) {
-				mutations.push([start].concat(searchMutation(element, end, bank.filter(function(item, i) {
+				var subMuations = searchMutation(element, end, bank.filter(function(item, i) {
 					return i !== index;
-				}))));
+				}));
+				mutations.push([start].concat(subMuations));
 			}
 		});
 
-		console.log('(' + start + ', ' + end + '), bank: ' + bank + ', mutations: ' + mutations);
+		console.log('(' + start + ', ' + end + '), bank: ' + bank + ', mutations: ' + JSON.stringify(mutations));
 
 		var validMutations = mutations.filter(function(item, index) {
 			return item[item.length - 1] === end;

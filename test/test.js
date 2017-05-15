@@ -42,7 +42,7 @@ describe('Minimum Genetic Mutation', function() {
 		});
 	});
 
-	describe.only('4 mutation', function () {
+	describe('4 mutation', function () {
 		it('4 mutation', function() {
 			assert(_.minMutation("AAAACCCC", "CCCCCCCC", ["AAAACCCA","AAACCCCA","AACCCCCA","AACCCCCC","ACCCCCCC","CCCCCCCC","AAACCCCC","AACCCCCC"]) === 4);
 		});

@@ -59,7 +59,11 @@ var minMutation = function(start, end, bank) {
 		})[0];
 	}
 
-	return findMinMutation(start, end, bank).length - 1;
+	function stepsOfMutation (arr) {
+		return arr.length - 1;
+	}
+
+	return stepsOfMutation(findMinMutation(start, end, bank));
 };
 
 module.exports = {

@@ -48,8 +48,6 @@ var minMutation = function(start, end, bank) {
 			}
 		});
 
-		console.log('(' + start + ', ' + end + '), bank: ' + bank + ', mutations: ' + JSON.stringify(mutations));
-
 		var validMutations = mutations.filter(function(item, index) {
 			return item[item.length - 1] === end;
 		});

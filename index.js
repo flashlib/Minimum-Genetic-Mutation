@@ -25,7 +25,7 @@ var minMutation = function(start, end, bank) {
 		return diffElements;
 	}
 
-	function searchMutation(start, end, bank) {
+	function findMinMutation(start, end, bank) {
 		if (bank.indexOf(end) === -1) {
 			return [];
 		}
@@ -41,7 +41,7 @@ var minMutation = function(start, end, bank) {
 		var mutations = [];
 		bank.forEach(function(element, index) {
 			if (diffElements(start, element).length === 1) {
-				var subMuations = searchMutation(element, end, bank.filter(function(item, i) {
+				var subMuations = findMinMutation(element, end, bank.filter(function(item, i) {
 					return i !== index;
 				}));
 				mutations.push([start].concat(subMuations));
@@ -61,7 +61,7 @@ var minMutation = function(start, end, bank) {
 		})[0];
 	}
 
-	return searchMutation(start, end, bank).length - 1;
+	return findMinMutation(start, end, bank).length - 1;
 };
 
 module.exports = {

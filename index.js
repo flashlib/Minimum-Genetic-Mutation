@@ -13,16 +13,14 @@ var minMutation = function(start, end, bank) {
 		var arr1 = a.split('');
 		var arr2 = b.split('');
 
-		var diffElements = arr1.map(function(item, index, arr) {
-			if (arr2[index] === item) {
-				return -1;
+		var diffElements = 0;
+		arr1.forEach( function(element, index) {
+			if (arr2[index] !== element) {
+				diffElements++;
 			}
-			return index;
-		}).filter(function(item, index) {
-			return item !== -1;
 		});
 
-		return diffElements.length === 1;
+		return diffElements === 1;
 	}
 
 	function findMinMutation(start, end, bank) {

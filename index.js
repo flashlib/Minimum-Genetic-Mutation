@@ -9,7 +9,7 @@ var minMutation = function(start, end, bank) {
 		return -1;
 	}
 
-	function diffElements(a, b) {
+	function oneStepMutation(a, b) {
 		var arr1 = a.split('');
 		var arr2 = b.split('');
 
@@ -22,7 +22,7 @@ var minMutation = function(start, end, bank) {
 			return item !== -1;
 		});
 
-		return diffElements;
+		return diffElements.length === 1;
 	}
 
 	function findMinMutation(start, end, bank) {
@@ -34,13 +34,13 @@ var minMutation = function(start, end, bank) {
 			return [end];
 		}
 
-		if (diffElements(start, end).length === 1) {
+		if (oneStepMutation(start, end)) {
 			return [start, end];
 		}
 
 		var mutations = [];
 		bank.forEach(function(element, index) {
-			if (diffElements(start, element).length === 1) {
+			if (oneStepMutation(start, element)) {
 				var subMuations = findMinMutation(element, end, bank.filter(function(item, i) {
 					return i !== index;
 				}));

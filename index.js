@@ -10,6 +10,10 @@ var minMutation = function(start, end, bank) {
 	}
 
 	function oneStepMutation(a, b) {
+		if (a === b) {
+			return false;
+		}
+
 		var arr1 = a.split('');
 		var arr2 = b.split('');
 
@@ -17,6 +21,10 @@ var minMutation = function(start, end, bank) {
 		arr1.forEach( function(element, index) {
 			if (arr2[index] !== element) {
 				diffElements++;
+				
+				if (diffElements > 1) {
+					return false;
+				}
 			}
 		});
 
